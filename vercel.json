@@ -1,13 +1,21 @@
 {
-    "version": 2,
-    "builds": [{ "src": "run.py", "use": "@vercel/python" }],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "run.py"
+  "version": 2,
+  "builds": [
+    {
+      "src": "run.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
       }
-    ],
-    "env": {
-      "FLASK_ENV": "production"
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "run.py"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": "production"
   }
+}
